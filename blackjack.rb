@@ -73,7 +73,7 @@ class Card
 end
 
 
-################### CREATES PLAYER AND COMPUTER ###################
+################### CREATES PLAYER AND HOUSE ###################
 
 human = Player.new "Human", 1000
 the_house = Player.new "The hizzy (or dealerdood)", 10000
@@ -86,4 +86,41 @@ puts the_house.bankroll
 deck []
 
 ################### PLAYING THE GAME ###################
+
+#Get player info
+puts "Hi player, what's your name?"
+name = gets.chomp
+puts "\n\nWelcome #{name}."
+human.name = "#{name}"
+
+#Asks to play
+puts "The game is Blackjack, want me to deal you in?"
+
+#Start game
+loop do
+    puts "Deal me or quit table"
+    deal_me = gets.chomp.downcase
+        #If human quits table, end loop
+        if deal_me == quits
+            puts "You're no fun"
+            break
+        else
+            #reset hand and value for players
+            human.hand.clear
+            human.total = 0
+            the_house.hand.clear
+            the_house.total = 0
+
+            #deals cards
+            puts "\n\nHere're your cards:"
+            deck = Deck.new
+            deck.deal(2, human)
+            #shows the player their cards, the cards will be index 0 and 1 in the array
+            puts "The #{human.hand[0].face} of #{human.hand[0].suit}"
+            puts "The #{human.hand[1].face} of #{human.hand[1].suit}\n\n"
+            
+            #deal house cards
+            deck.deal(2, the_house)
+            puts "The dealer's first card is:"
+            puts "The #{the_house.hand[0].face} of #{the_house.hand[0[.suit}\n\n"
 
