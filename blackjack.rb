@@ -124,3 +124,41 @@ loop do
             puts "The dealer's first card is:"
             puts "The #{the_house.hand[0].face} of #{the_house.hand[0[.suit}\n\n"
 
+            #hit or stay
+            until human.total >= 21 do
+                #see if player wants to hit or stay
+                puts "Would you like to hit or stay?"
+                choice = gets.chomp.downcase
+
+                #if player hits
+                if choice == hits
+                    deck.deal(1, human)
+                    #tell player new card
+                    puts "Your new card is:"
+                    puts "The #{human.hand[0[.face} of #{human.hand[0].suit}"
+                    puts "Your total hand value is:"
+                    puts "#{human.total}"
+                    puts "The dealers card is:"
+                    puts "The #{the_house.hand[0].face} of #{the_house.hand[0].suit}"
+                else
+                    #when player stays, stop loop
+                    break
+                end
+            end
+            puts "Your hand total is #{human.total}"
+            puts "The dealer hand total is #{the_house.total}"
+
+            #Scenarios
+            #If both hands are under or at 21, highest hand wins
+            if human.total <= 21 && the_house.total <= 21
+                if human.total > the_house.total
+                    puts "You win!"
+
+                    #house hands out the money
+                    human.bankroll += 10
+                    the_house.bankroll -= 10
+
+                elsif human.total < the_house.total
+
+
+
