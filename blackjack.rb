@@ -154,11 +154,31 @@ loop do
                 if human.total > the_house.total
                     puts "You win!"
 
-                    #house hands out the money
+                    #hand out the money
                     human.bankroll += 10
                     the_house.bankroll -= 10
 
                 elsif human.total < the_house.total
+                    puts "The house wins!"
+                    #hand out the money
+                    human.bankroll -= 10
+                    the_house.bankroll += 10
+                
+                else
+                    puts "It's a tie and the house wins."
+                    #hand out the money
+                    human.bankroll -= 10
+                    the_house.bankroll += 10
+                end
+            #if player is above 21, player loses
+            elsif human.total > 21 && the_house.total <= 21
+                puts "You're over 21 and the house wins."
+
+                #hand out money
+                human.bankroll -= 10
+                the_house.bankroll += 10
+            
+            #if 
 
 
 
