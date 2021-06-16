@@ -178,7 +178,22 @@ loop do
                 human.bankroll -= 10
                 the_house.bankroll += 10
             
-            #if 
+            #if the house is above 21, the house loses
+            elseif human.total <= 21 && the_house.total > 21
+            puts "The house is over 21, you win!"
+
+                #hand out money
+                human.bankroll += 10
+                the_house.bankroll -= 10
+
+            else 
+                #if both are above 21, no one wins
+                puts "You're both over 21 so no one wins."
+            
+            end
+            #Tell the player how much money they have
+            puts "You now have $#{human.bankroll}"
+            puts "The house has $#{computer.bankroll}\n\n"
 
 
 
