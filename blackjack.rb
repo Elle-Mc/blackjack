@@ -194,6 +194,15 @@ loop do
             #Tell the player how much money they have
             puts "You now have $#{human.bankroll}"
             puts "The house has $#{computer.bankroll}\n\n"
+                if human.bankroll <= 0
+                    puts "You're out of money"
+                        break
+                else
+                    #play again?
+                    puts "Play again?"
+                end
+            end
+        end
 
 
 
